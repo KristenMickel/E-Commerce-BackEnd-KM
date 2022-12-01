@@ -1,3 +1,5 @@
+/*In terms of reading my notes/comments sequentially, start with this model file, then read Product.js, followed by ProductTag.js and then Tag.js.
+
 /*I am creating my sequelize model in order to categorize the different products.*/
 
 /*First, I need to require/import the "Model" and "Datatypes" classes from sequelize.*/
@@ -24,7 +26,7 @@ Category.init(
       autoIncrement: true //This makes the integer values increment by 1 with each row created since the "id" values will be automatically created.
     },
     category_name: {
-      type: DataTypes.STRING, //This column will be of the string data type since it will contain the category names that products will be assigned to.
+      type: DataTypes.STRING, //This column will be of the sequelize string data type since it will contain the category names that products will be assigned to.
       allowNull: false
     }
   },
