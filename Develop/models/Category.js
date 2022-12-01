@@ -1,4 +1,4 @@
-/*In terms of reading my notes/comments sequentially, start with this model file, then read Product.js, followed by ProductTag.js and then Tag.js.
+/*In terms of reading my notes/comments sequentially, start with this model file, then read Product.js, followed by Tag.js and then ProductTag.js.
 
 /*I am creating my sequelize model in order to categorize the different products.*/
 
