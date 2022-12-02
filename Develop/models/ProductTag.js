@@ -35,15 +35,6 @@ ProductTag.init(
         key: 'id',
         unique: true
       }
-    },
-    /*This column will store a reference ...*/
-    product_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'product',
-        key: 'id',
-        unique: true
-      }
     }
   },
   {
