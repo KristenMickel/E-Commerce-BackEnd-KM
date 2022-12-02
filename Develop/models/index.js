@@ -23,7 +23,8 @@ Category.hasMany(Product, {
   onDelete: 'CASCADE', //This is saying that when I delete a Category, I should delete the associated Products.
 });
 
-/*As I mentioned above, each Product can have many Tags via the ProductTags model/table, so "belongToMany" should be used.*/
+/*As I mentioned above, each Product can have many Tags via the ProductTags model/table, so "belongToMany" should be used.
+I believe I have an error here that is preventing my Product GET routes from working, perhaps something to do with the Unique Constraint.*/
 Product.belongsToMany(Tag, {
   through: {
     model: ProductTag, //This format was used in the Mini-Project for the ORM module. It appears to be necessary when you use a mapping table.
@@ -33,7 +34,8 @@ Product.belongsToMany(Tag, {
   as: 'Product_Tags'
 });
 
-/*As I mentioned above, each Tag can have many Products via the ProductTags model/table, so "belongToMany" should be used.*/
+/*As I mentioned above, each Tag can have many Products via the ProductTags model/table, so "belongToMany" should be used.
+I believe I have an error here that is preventing my Product GET routes from working, perhaps something to do with the Unique Constraint.*/
 Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,

@@ -46,7 +46,7 @@ Product.init(
       references: {
         model: 'category',
         key: 'id',
-        unique: true
+        unique: false //This is a Unique Constraint and will preent any attempts to insert a category_id that already exists.
       }
     }
   },

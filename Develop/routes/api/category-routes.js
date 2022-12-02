@@ -1,4 +1,11 @@
+/*I don't technically need Express to run Sequelize because it runs in node.
+Express is what you use to make a server and node is what you use to run JS outside of the browser.
+Sequelize will run in node so you don't need express.*/
+
 const router = require('express').Router();
+
+/*Here, I am using object destructuring to import my two related models by name.
+It is cleaner to do this on one line instead of having two lines of "require".*/
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
