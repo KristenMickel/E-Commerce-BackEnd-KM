@@ -5,7 +5,7 @@ const express = require('express');
 const routes = require('./routes');
 
 /*I need to require the path to my connection.js file which is where I will create my sequelize object.
-I will export my sequelize connection at the end of my connection.js file. So, here, I am importing it*/
+I will export my sequelize connection at the end of my connection.js file. So, here, I am importing it.*/
 const sequelize = require('./config/connection');
 
 /*I am creating my Express application*/
