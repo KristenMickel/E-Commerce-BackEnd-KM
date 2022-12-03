@@ -94,7 +94,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-/*This fifth route will delete a category from the Catorgy model using the DELETE request method and the id of the category that I want to delete.*/
+/*This fifth route will delete a category from the Category model using the DELETE request method and the id of the category that I want to delete.*/
 router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({

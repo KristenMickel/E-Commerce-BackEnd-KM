@@ -1,12 +1,11 @@
+/*Refer to my category-routes.js" file for more in-depth notes explaining the components of my Javascript routes files.*/
+
 const router = require('express').Router();
 const { Product, Category, ProductTag, Tag } = require('../../models');
 
-// The `/api/products` endpoint
-
-// get all products
+/*This first route will retrieve all products from the Product model using the GET request method.
+This route is not working correctly. See my comments in my models/index.js file since I believe my error is stemming from how my relationship is defined between my Product and Tag models/tables.*/
 router.get('/', async (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findAll({
       include: [{ model: Category }, { model: ProductTag }, { model: Tag }],
@@ -17,17 +16,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
+/*This second route will retrieve a specific product from the Product model using the GET request method.
+This route is not working correctly. See my comments in my models/index.js file since I believe my error is stemming from how my relationship is defined between my Product and Tag models/tables.*/
 router.get('/:id', async (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
   try {
-    //We are saying that I want to find a driver by the primary key (.findByPk is another sequelize method)
     const productData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category }, { model: ProductTag }], //Here, we are saying that I also want you to include data from the License table and the Car table along with the driver data. The result is that we end up with an object that has a single license and multiple cars.
-      //Can also do the following where you specify which columns and if they are required (which will drive what kind of JOIN is used).
-      //include: [{ model: License, attributes: [''], required: }, { model: Car}],
-      //We define a relationship and then based on how that relationship is defined, sequelize knows how to query the database and get the data and bring it back to us.
+      include: [{ model: Category }, { model: ProductTag }, { model: Tag }],
     });
 
     if (!productData) {
@@ -41,9 +35,10 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// create new product
-//This provided code is not using async.
+/*This third route will create a new product in the Product model using the POST request method.
+I am not clear on why this provided code is not using async-await.*/
 router.post('/', (req, res) => {
+  //This provide template is what you post in the JSON body when sending the request.
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -74,7 +69,8 @@ router.post('/', (req, res) => {
     });
 });
 
-// update product
+/*This fourth route will update a product in the Product model using the PUT request method.
+I am not clear on why this provided code is not using async-await.*/
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -116,8 +112,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
+/*This fifth route will delete a product from the Product model using the DELETE request method and the id of the product that I want to delete.*/
 router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
   const productData = await Product.destroy({
     where: {
       id: req.params.id,
